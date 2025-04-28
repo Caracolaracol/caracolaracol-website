@@ -76,7 +76,7 @@ export default function CommentSection({ postSlug }: CommentSectionProps) {
   const updateRateLimit = () => {
     const rateLimitKey = getRateLimitKey(postSlug);
     const now = Date.now();
-    let rateData = { attempts: 1, timestamp: now };
+    let rateData:{attempts:number, timestamp:number, blockedUntil?:number} = { attempts: 1, timestamp: now };
     
     const existing = localStorage.getItem(rateLimitKey);
     if (existing) {
