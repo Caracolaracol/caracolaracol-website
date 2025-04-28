@@ -1,0 +1,136 @@
+---
+import MainLayout from "./MainLayout.astro";
+import Sidebar from "@/components/Sidebar/index.astro";
+const { title } = Astro.props;
+---
+
+<MainLayout title={title}>
+  <div class="bg-cerise z-50 h-0.5 laptop:h-3 w-full fixed background_noise"/>
+  
+  <!-- Mobile Sidebar Toggle Button - only visible on mobile -->
+  <button 
+    id="sidebarToggle" 
+    class="tablet:hidden fixed bottom-3 left-3 z-50 bg-cerise/90 text-white p-2 rounded-md shadow-md"
+    aria-label="Toggle Sidebar"
+  >
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+    </svg>
+  </button>
+
+  <!-- Mobile Sidebar Overlay - shown when sidebar is open -->
+  <div id="sidebarOverlay" class="fixed inset-0 bg-black/50 z-40 hidden tablet:hidden"></div>
+  
+  <div class="w-full h-full grid grid-cols-1 pt-0.5 laptop:pt-3 tablet:grid-cols-[310px_1fr] overflow-hidden">
+    <!-- Mobile Sidebar - hidden by default on mobile, always visible on tablet+ -->
+    <div id="mobileSidebar" class="fixed top-0 left-0 h-full w-[250px] -translate-x-full tablet:static tablet:translate-x-0 transition-transform duration-300 ease-in-out z-50 bg-dark tablet:bg-transparent">
+      <Sidebar />
+    </div>
+
+    <main class="py-5 overflow-y-auto px-4 laptop:px-12 desktop:px-16 widescreen:px-24 fullhd:px-60 4k:px-72">
+      <slot />
+    </main>
+  </div>
+</MainLayout>
+<script>
+  // Function to handle sidebar toggle functionality
+  function setupSidebar() {
+    // Clean up any existing event listeners first
+    const oldToggle = document.getElementById('sidebarToggle');
+    const oldOverlay = document.getElementById('sidebarOverlay');
+    
+    if (oldToggle) {
+      oldToggle.replaceWith(oldToggle.cloneNode(true));
+    }
+    
+    if (oldOverlay) {
+      oldOverlay.replaceWith(oldOverlay.cloneNode(true));
+    }
+    
+    // Get fresh references to DOM elements
+    const toggle = document.getElementById('sidebarToggle');
+    const sidebar = document.getElementById('mobileSidebar');
+    const overlay = document.getElementById('sidebarOverlay');
+    
+    // Only set up listeners if elements exist
+    if (!toggle || !sidebar || !overlay) {
+      console.error('Sidebar elements not found');
+      return;
+    }
+    
+    // Add click event to toggle button
+    toggle.addEventListener('click', function() {
+      sidebar.classList.toggle('-translate-x-full');
+      overlay.classList.toggle('hidden');
+      document.body.classList.toggle('overflow-hidden');
+    });
+    
+    // Add click event to overlay
+    overlay.addEventListener('click', function() {
+      sidebar.classList.add('-translate-x-full');
+      overlay.classList.add('hidden');
+      document.body.classList.remove('overflow-hidden');
+    });
+    
+    console.log('Sidebar functionality initialized');
+  }
+  
+  // Run setup immediately
+  setupSidebar();
+  
+  // Also run on DOMContentLoaded (for initial page load)
+  document.addEventListener('DOMContentLoaded', setupSidebar);
+  
+  // Run on Astro page transitions
+  document.addEventListener('astro:page-load', setupSidebar);
+  
+  // Also run on Astro content load
+  document.addEventListener('astro:after-swap', setupSidebar);
+</script>
+
+<style>
+  .layout-container {
+    width: 100%;
+    height: 100%;
+
+    display: grid;
+    grid:
+      "sidebar body" 1fr
+      / auto 1fr;
+    gap: 8px;
+  }
+
+  .sidebar {
+    grid-area: sidebar;
+    width: 250px;
+    background-color: #f5f5f5;
+    padding: 2rem;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+
+  .sidebar ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .sidebar li {
+    margin-bottom: 1rem;
+  }
+
+  .sidebar a {
+    text-decoration: none;
+    color: #333;
+    font-weight: 500;
+    transition: color 0.2s;
+  }
+
+  .sidebar a:hover {
+    color: #0077cc;
+  }
+
+  .content {
+    flex: 1;
+    padding: 2rem;
+    grid-area: body;
+  }
+</style>

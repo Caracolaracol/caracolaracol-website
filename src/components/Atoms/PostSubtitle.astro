@@ -1,0 +1,11 @@
+---
+const { title, color } = Astro.props;
+---
+
+<div class={`${color ? color : "bg-cerise"}  py-1 mb-1 h-16 flex items-center`}>
+  <h2
+    class="tablet:tracking-wide tablet:text-5xl laptop:text-5xl desktop:text-[2.6rem] laptop:tracking-normal cursor-default text-[2.2rem]"
+  >
+    {title}
+  </h2>
+</div>

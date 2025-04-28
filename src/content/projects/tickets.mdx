@@ -1,0 +1,19 @@
+---
+pubDate: 2023-10-12
+author: Agustin Rojas
+title: Tickets
+description: "Embark on a cosmic journey with astro.js, the framework that makes interstellar development a breeze. Pair it with Tailwind CSS for a design that's out of this world"
+images: [
+  "https://xvifyrqivqsozuhckqte.supabase.co/storage/v1/object/public/Images/tickets/tickets.tipddy.cl_.png?t=2025-01-04T23%3A08%3A45.767Z",
+  "https://xvifyrqivqsozuhckqte.supabase.co/storage/v1/object/public/Images/tickets/tickets.tipddy.cl_%20(2).png?t=2025-01-04T23%3A08%3A20.157Z",
+  "https://xvifyrqivqsozuhckqte.supabase.co/storage/v1/object/public/Images/tickets/tickets.tipddy.cl_%20(3).png?t=2025-01-04T23%3A08%3A30.792Z"
+]
+category: Web
+tags: ["Web", "React", "Tailwind", "Next.js"]
+slug: tickets
+---
+import  ProjectImages  from '../../components/Atoms/ProjectImages.tsx'
+
+<ProjectImages client:load images={frontmatter.images}/>
+
+Tickets is a system where clients create tickets for the Tipddy's team to tackle any project-related issues. The app is built with React for the user interface, using Jotai for state management and Tailwind for styling. On the backend, it runs on WordPress with PHP. We’ve also integrated automation and bots to handle email notifications to both clients and our team. Plus, the Slack API is used to send us alerts about new tickets or messages from clients, keeping everyone in the loop.

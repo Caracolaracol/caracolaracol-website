@@ -1,0 +1,14 @@
+---
+import "@/styles/global.css";
+import { ClientRouter } from "astro:transitions";
+import MainLayout from "./MainLayout.astro";
+
+const { title } = Astro.props;
+let pathname = Astro.url.pathname;
+---
+
+<MainLayout title={title}>
+  <div class="flex items-center justify-center w-[100dvw] h-[100dvh]">
+    <slot />
+  </div>
+</MainLayout>

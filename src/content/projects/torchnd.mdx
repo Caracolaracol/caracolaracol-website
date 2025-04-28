@@ -1,0 +1,43 @@
+---
+pubDate: 2023-10-12
+author: Agustin Rojas
+title: Torchnd
+description: "Embark on a cosmic journey with astro.js, the framework that makes interstellar development a breeze. Pair it with Tailwind CSS for a design that's out of this world"
+images: [
+    "https://xvifyrqivqsozuhckqte.supabase.co/storage/v1/object/public/Images/torchnd/torchnd01bigmobile.png?t=2024-07-07T19%3A12%3A25.383Z",
+    "https://xvifyrqivqsozuhckqte.supabase.co/storage/v1/object/public/Images/torchnd/torchnd02bigmobile.png?t=2024-07-07T19%3A12%3A31.468Z",
+    "https://xvifyrqivqsozuhckqte.supabase.co/storage/v1/object/public/Images/torchnd/torchnd03bigmobile.png?t=2024-07-07T19%3A12%3A38.850Z",
+    "https://xvifyrqivqsozuhckqte.supabase.co/storage/v1/object/public/Images/torchnd/torchnd05bigmobile.png"
+]
+category: Apps
+tags: ["Apps", "React Native", "Expo", "Wordpress", "PHP"]
+slug: torchnd
+---
+import  ProjectImages  from '../../components/Atoms/ProjectImages.tsx'
+import expo from "@/assets/icons/expo.svg";
+import javascript from "@/assets/icons/javascript.svg";
+import wordpress from "@/assets/icons/wordpress.svg";
+import php from "@/assets/icons/php.svg";
+import express  from "@/assets/icons/express.svg";
+import { Image } from "astro:assets";
+
+<ProjectImages client:only images={frontmatter.images}/>
+
+Torchnd is basically a booking app like Airbnb, but with a fun twist—it's all about fictional places and hosts. I built it using Expo, and it works smoothly on both Android and iOS. This was my first dive into app development and design, and it’s been a great learning journey. I also added some cool gamification features with the quick help of AI to make the experience more engaging.
+
+<div className="not-prose">
+<div> <p className="font-chrono text-platinum text-4xl tracking-wide ">Stack</p></div>
+<div className="flex gap-2">
+<Image
+    src={expo}
+    alt="react"
+    class="rounded-md w-12 tablet:w-16 laptop:w-16"
+/>
+<Image
+    src={javascript}
+    alt="javascript"
+    class="rounded-md w-12 tablet:w-16 laptop:w-16"
+/>
+
+</div>
+</div>

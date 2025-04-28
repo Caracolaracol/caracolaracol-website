@@ -1,0 +1,54 @@
+---
+import HomeLayout from "@/layouts/HomeLayout.astro";
+import HomeLinks from "@/components/Home/HomeLinks";
+import TheParticles from "@/components/Atoms/TheParticles.tsx";
+import { Image } from "astro:assets";
+import yo2 from "@/assets/images/yo5.jpg";
+---
+
+<HomeLayout title="Caracolaracol | Home">
+  <div class="flex flex-col justify-center items-center z-10">
+    <header class="mb-4 flex h-[237px] w-64 justify-center">
+      <!-- <CircleImages client:load /> -->
+      <Image
+        src={yo2}
+        alt="Caracolaracol logo"
+        class="relative rounded-full circle_img_1 object-cover"
+      />
+    </header>
+    <main>
+      <div>
+        <h1 class="text-[1.3rem] text-center tablet:text-5xl laptop:text-6xl desktop:text-7xl">
+          Agustín Rojas{" "}
+          <span
+            class="text-ocre tablet:text-5xl laptop:text-6xl desktop:text-7xl font-tommyBold text-xl"
+            >{`//`}</span
+          >{" "} Creative Developer
+        </h1>
+      </div>
+      <div class="flex justify-center h-4  my-4">
+        <h3 class="text-[.7em] tablet:text-[.9rem] laptop:text-[1.1rem] desktop:text-[1.2rem] antialiased w-[80%] text-center">Welcome to my site, Feel free to explore this cozy virtual space!</h3>
+      </div>
+      <div class="flex justify-center gap-3 py-5">
+
+        <a href="/portfolio">
+
+          <button
+          class="bg-violet hover:text-cerise font-tommyMedium px-4 rounded-lg transition-colors w-[8rem] h-[2rem] tablet:h-[3rem] cursor-pointer flex items-center justify-center"
+          ><h3>Portfolio</h3></button
+          >
+        </a>
+        <a href="/blog">
+          <button
+          class="bg-violet hover:text-cerise font-tommyMedium px-4 rounded-lg transition-colors w-[8rem] h-[2rem] tablet:h-[3rem] cursor-pointer flex items-center justify-center"
+          ><h3>Blog</h3></button
+          >
+        </a>
+      </div>
+    </main>
+    <HomeLinks transition:name="links" client:load>
+      <div class={`flex justify-center gap-3`}></div>
+    </HomeLinks>
+  </div>
+  <TheParticles client:load />
+</HomeLayout>

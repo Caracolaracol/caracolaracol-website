@@ -1,0 +1,29 @@
+---
+pubDate: 2023-10-12
+author: Agustin Rojas
+title: Iron Plant
+description: "Embark on a cosmic journey with astro.js, the framework that makes interstellar development a breeze. Pair it with Tailwind CSS for a design that's out of this world"
+images: [
+    "https://xvifyrqivqsozuhckqte.supabase.co/storage/v1/object/public/Images/iron-plant/ironplant1.png",
+    "https://xvifyrqivqsozuhckqte.supabase.co/storage/v1/object/public/Images/iron-plant/ironplant2.png?t=2024-07-07T06%3A44%3A33.498Z",
+    "https://xvifyrqivqsozuhckqte.supabase.co/storage/v1/object/public/Images/iron-plant/ironplant3mobile.png?t=2024-07-07T06%3A44%3A41.822Z",
+    "https://xvifyrqivqsozuhckqte.supabase.co/storage/v1/object/public/Images/iron-plant/ironplant4mobile.png?t=2024-07-07T06%3A44%3A49.379Z"
+]
+illustrations: [
+    "https://xvifyrqivqsozuhckqte.supabase.co/storage/v1/object/public/Images/iron-plant/rana2.png?t=2024-07-17T01%3A30%3A16.919Z"
+]
+category: Web
+tags: ["Web", "React", "Tailwind", "Next.js"]
+slug: iron-plant
+---
+
+import  ProjectImages  from '../../components/Atoms/ProjectImages.tsx'
+import { Image } from "astro:assets";
+
+<ProjectImages client:load images={frontmatter.images}/>
+    
+This is a Remake of the Ironplant website, a Vegan brand selling food supplements. I did this site for the final project of the React Js bootcamp at Coderhouse, where I forged a lot of my web development skills. In this project you can actually simulate a purchase, it has itemlists, filtered items, item details, cart and a checkout form.
+
+<div className='w-[240px] mx-auto'>
+<Image src={frontmatter.illustrations[0]} alt='frog' height={240} width={240}/>
+</div>

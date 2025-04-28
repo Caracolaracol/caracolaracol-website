@@ -1,0 +1,54 @@
+---
+pubDate: 2024-23-06
+author: Agustin Rojas
+title: FIDE Form
+description: "Embark on a cosmic journey with astro.js, the framework that makes interstellar development a breeze. Pair it with Tailwind CSS for a design that's out of this world"
+images:
+    [
+        "https://xvifyrqivqsozuhckqte.supabase.co/storage/v1/object/public/Images/fideform/2.jpeg?t=2024-10-14T00%3A52%3A03.707Z",
+        "https://xvifyrqivqsozuhckqte.supabase.co/storage/v1/object/public/Images/fideform/1.jpeg?t=2024-10-14T00%3A51%3A56.424Z"
+    ]
+category: Web
+tags: ["Apps", "Astro", "TypeScript", "Wordpress", "PHP"]
+slug: fideform
+---
+
+import ProjectImages from "../../components/Atoms/ProjectImages.tsx";
+import expo from "@/assets/icons/expo.svg";
+import astro from "@/assets/icons/astro.svg";
+import wordpress from "@/assets/icons/wordpress.svg";
+import php from "@/assets/icons/php.svg";
+import TypeScript from "@/assets/icons/typescript.svg";
+import { Image } from "astro:assets";
+
+<ProjectImages client:load images={frontmatter.images} />
+
+
+I developed a website that facilitates the registration process for the FIDE App, allowing one or more members from educational institutions to sign up. The site is integrated with a school database, enabling dynamic queries and registrations based on the institution selected by the user. The front-end is built with Astro and TypeScript, ensuring a fast and modern user experience, while the back-end uses WordPress (ACF) and PHP for managing the data and processes. This site streamlines the enrollment process for FIDE-affiliated schools, making it easier to onboard multiple users efficiently.
+
+<div className="not-prose">
+<div> <p className="font-chrono text-platinum text-4xl tracking-wide ">Stack</p></div>
+<div className="flex gap-2">
+<Image
+    src={astro}
+    alt="astro"
+    class="rounded-md w-12 tablet:w-16 laptop:w-16"
+/>
+<Image
+    src={TypeScript}
+    alt="wordpress"
+    class="rounded-md w-12 tablet:w-16 laptop:w-16"
+/>
+<Image
+    src={wordpress}
+    alt="wordpress"
+    class="rounded-md w-12 tablet:w-16 laptop:w-16"
+/>
+<Image
+    src={php}
+    alt="wordpress"
+    class="rounded-md w-12 tablet:w-16 laptop:w-16"
+/>
+</div>
+
+</div>

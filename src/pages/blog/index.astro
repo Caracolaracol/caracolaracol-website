@@ -1,0 +1,98 @@
+---
+import InteriorLayout from "@/layouts/InteriorLayout.astro";
+import { Image } from "astro:assets";
+import { getCollection } from "astro:content";
+import Prose from "@/components/Atoms/Prose.astro";
+import { render } from "astro:content";
+
+const allPosts = await getCollection("posts");
+/* last 6 posts */
+const lastPosts = allPosts.slice(0, 6);
+const postsWithExcerpts = await Promise.all(
+  lastPosts.map(async (post) => {
+    // Get an excerpt by taking the first few sentences (adjust length as needed)
+    const rawContent = post.body;
+    let excerpt =
+      rawContent &&
+      rawContent
+        .split(/(?<=\.)\s+/)
+        .slice(0, 1)
+        .join(" ");
+    // Then limit it to a maximum number of characters if needed
+    const maxLength = 150; // Ajusta este valor según necesites
+
+    if (excerpt && excerpt.length > maxLength) {
+      excerpt = excerpt.substring(0, maxLength);
+
+      // Find the last space to avoid cutting words in half
+      const lastSpace = excerpt.lastIndexOf(" ");
+      if (lastSpace > 0) {
+        excerpt = excerpt.substring(0, lastSpace);
+      }
+
+      // Add ellipsis
+      excerpt += "...";
+    }
+    return { ...post, excerpt };
+  })
+);
+---
+
+<InteriorLayout title="Blog | Caracolaracol">
+  <div>
+    <div class="mb-4">
+      <h1>Last posts</h1>
+    </div>
+    <!-- List of posts with flex-wrap -->
+    <div
+      class="grid grid-cols-1 tablet:grid-cols-2 laptop:grid-cols-3 gap-4 w-full"
+    >
+      {
+        postsWithExcerpts.map((post) => (
+          <div class="w-full  p-2 tablet:p-0">
+            <div class="flex flex-col rounded-md  h-full">
+              <div class="">
+                <div class="aspect-video">
+                  <Image
+                    src={post.data.image.url && post.data.image.url}
+                    alt={post.data.title && post.data.title}
+                    width={600}
+                    height={220}
+                    class="object-cover aspect-video w-full rounded-md"
+                  />
+                </div>
+                <a href={`/blog/${post.data.slug}`} class=" cursor-pointer">
+                  <h2 class="mb-2 relative inline-flex flex-col ">
+                    {post.data.title}
+                    <div class="bg-cerise/50 h-[5px] rounded-md backdrop-blur-lg w-full absolute bottom-0" />
+                  </h2>
+                </a>
+                <Prose class="flex-1">
+                  <p>{post.data.description || post.excerpt}..</p>
+                </Prose>
+                
+                <div class="flex justify-between items-center mt-2">
+                  {/* tags */}
+                  <div class="flex gap-2 bg-cerise px-2 rounded-md">
+                    {post.data.tags.map((tag) => (
+                      <p  class="text-sm text-gray-500 hover:text-gray-700">
+                        {tag}
+                      </p>
+                    ))}
+                  </div>
+                  <p class="text-sm text-gray-500">
+                    {new Date(post.data.pubDate).toLocaleDateString("es-ES", {
+                      year: "numeric",
+                      month: "long",
+                      day: "numeric",
+                    })}
+                  </p></div>
+
+              </div>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</InteriorLayout>

@@ -1,0 +1,75 @@
+---
+pubDate: 2024-03-03
+author: Agustin Rojas
+title: Arts
+description: "Explore the diverse world of my artistic projects, from ceramics to digital artwork, sound art, and radiotheater."
+category: Arts
+tags: ["Art", "Ceramics", "Digital Art", "Sound Art", "Radiotheater"]
+link: WI0C-SUnDmo
+slug: arts
+images:
+    [
+        "https://xvifyrqivqsozuhckqte.supabase.co/storage/v1/object/public/Images/art/20200304_184856.jpg",
+        "https://xvifyrqivqsozuhckqte.supabase.co/storage/v1/object/public/Images/art/IMG_20200606_154333_2.jpg",
+        "https://xvifyrqivqsozuhckqte.supabase.co/storage/v1/object/public/Images/art/IMG_20200606_154838_2.jpg",
+        "https://xvifyrqivqsozuhckqte.supabase.co/storage/v1/object/public/Images/art/IMG_20200606_162507_2.jpg",
+        "https://xvifyrqivqsozuhckqte.supabase.co/storage/v1/object/public/Images/art/IMG_4614.jpg",
+        "https://xvifyrqivqsozuhckqte.supabase.co/storage/v1/object/public/Images/art/_MG_5668.jpg?t=2024-11-17T18%3A37%3A41.067Z"
+    ]
+
+---
+import VideoPlayer from '../../components/Atoms/VideoPlayer.tsx'
+import PostSubtitle from "../../components/Atoms/PostSubtitle.astro";
+import ProjectImages from '../../components/Atoms/ProjectImages.tsx';
+import EmblaCarousel from '../../components/ImageGallery/Carousel.tsx'
+import { Image } from "astro:assets";
+
+
+Take a look at the different kinds of art I've made over my lifetime. I've worked with many materials and disciplines, each one giving me a new way to show my creativity.
+
+My work includes shaping and painting with ceramics and acrylics. I have also ventured into digital artwork, creating pieces that feel both new and timeless. I've also worked on radiotheater projects, creating stories that are both engaging and immersive. I've used sound to create a world that listeners can get lost in, making them feel like they're part of the story.
+
+<div class="not-prose mt-9 mb-3">
+  <PostSubtitle title="Sigma - Metro de Santiago" color="bg-darkpurple !h-24" />
+</div>
+<div class=''>
+  <div class="tablet:float-left tablet:w-1/2 py-4">
+    <VideoPlayer client:only videolink={frontmatter.link}/>
+  </div>
+  <div class=" tablet:float-left tablet:w-1/2 pl-4">
+    This is a piece of radio theatre, created in a time when I was exploring the world of cosmic horror, Lovecraftian themes, and the idea of the unknown. The story is set in the Santiago Metro, where the train conducer find himself in a situation that is both terrifying and mysterious. The piece was created using sound effects, and voice acting to create an immersive experience for the listener. For my surprise, the audio became a viral creepypasta through the internet and was shared in many forums and social media, inspiring other artists to create their own versions of the story. An installation of this piece was also presented at the Faculty of Arts of the University of Chile.
+  </div>
+  <div class="clear-both"></div>
+</div>
+
+<div class="not-prose mt-9 mb-3">
+  <PostSubtitle title="Paintings" color="bg-ocre" />
+</div>
+ So, here are some of the artworks I've made over the years. I've worked with acrylics, oils, ceramics and charcoal, each one giving me a new way to express myself. I've painted landscapes, portraits, and abstract pieces, each one telling a different story. I've also experimented with different styles and techniques, pushing myself to try new things and see what works best for me.
+<div class='tablet:h-[43rem]'>
+ <EmblaCarousel slides={frontmatter.images} client:load/>
+</div>
+
+<div class="not-prose mt-9 mb-3">
+  <PostSubtitle title="Bichonauta Artwork" color="bg-violet" />
+</div>
+I made the artwork for the Bichonauta music project, this is the Artwork for the album "Camino al Manzano"
+<Image
+    src='https://xvifyrqivqsozuhckqte.supabase.co/storage/v1/object/public/Images/art/Portada%20final.jpg?t=2024-11-17T18%3A23%3A33.764Z'
+    alt="react"
+    width={1600}
+    height={900}
+    class="aspect-video object-contain rounded-md "
+/>
+
+<div class="not-prose mt-9 mb-3">
+  <PostSubtitle title="Painting with Circuits" color="bg-darkpurple" />
+</div>
+    Although this is also an acrylic painting, I wanted to present it separately because it was a special project. This piece, titled Silencio Mayor, incorporates a circuit board behind the canvas, creating a unique fusion of technology and art. My goal was to demonstrate how technology and art can come together to produce something both beautiful and distinctive, and I believe this piece achieves that. The canvas features a switch and a knob, allowing users to adjust parameters for the light sensor hidden beneath the canvas. These adjustments influence the sound emitted by the tweeter and the behavior of the LEDs embedded in the stars, resulting in a piece that is not only visually captivating but also interactive.
+<Image
+    src='https://xvifyrqivqsozuhckqte.supabase.co/storage/v1/object/public/Images/art/IMG_20200606_151720_2.jpg?t=2024-11-17T18%3A39%3A33.413Z'
+    alt="react"
+    width={1600}
+    height={900}
+    class="aspect-video object-contain rounded-md "
+/>

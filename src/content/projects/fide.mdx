@@ -1,0 +1,55 @@
+---
+pubDate: 2024-23-06
+author: Agustin Rojas
+title: FIDE app
+description: "Embark on a cosmic journey with astro.js, the framework that makes interstellar development a breeze. Pair it with Tailwind CSS for a design that's out of this world"
+images:
+    [
+        "https://xvifyrqivqsozuhckqte.supabase.co/storage/v1/object/public/Images/fide/404shots_so.png"
+    ]
+category: Apps
+tags: ["Apps", "Flutter", "Dart", "Wordpress", "PHP"]
+slug: fide
+
+---
+
+import ProjectImages from "../../components/Atoms/ProjectImages.tsx";
+import expo from "@/assets/icons/expo.svg";
+import flutterflow from "@/assets/icons/flutterflow.jpeg";
+import wordpress from "@/assets/icons/wordpress.svg";
+import php from "@/assets/icons/php.svg";
+import express  from "@/assets/icons/express.svg";
+import { Image } from "astro:assets";
+
+<div className="flex flex-col laptop:flex-row laptop:items-center w-[80%] mx-auto px-4 self-center not-prose">
+<Image
+    src={frontmatter.images[0]}
+    alt="react"
+    width={1600}
+    height={900}
+    class="aspect-video object-contain rounded-md "
+/>
+</div>
+My team and I developed this mobile app for the Federation of Private Educational Institutions (FIDE) in Chile, designed to connect school teams affiliated with FIDE. The app provides a platform for communication, delivering news, and sending relevant notifications to the educational community. Built using Flutterflow and Dart for the front-end, with WordPress (ACF) and PHP handling the back-end, it enables seamless interaction between members, keeping them informed and connected. The app is a vital tool for FIDE-affiliated schools to stay updated on institutional matters and collaborate more effectively.
+
+<div className="not-prose">
+<div> <p className="font-chrono text-platinum text-4xl tracking-wide ">Stack</p></div>
+<div className="flex gap-2">
+<Image
+    src={flutterflow}
+    alt="javascript"
+    class="rounded-md w-12 tablet:w-16 laptop:w-16"
+/>
+<Image
+    src={wordpress}
+    alt="wordpress"
+    class="rounded-md w-12 tablet:w-16 laptop:w-16"
+/>
+<Image
+    src={php}
+    alt="wordpress"
+    class="rounded-md w-12 tablet:w-16 laptop:w-16"
+/>
+</div>
+
+</div>

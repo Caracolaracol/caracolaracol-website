@@ -1,0 +1,72 @@
+---
+pubDate: 2024-23-06
+author: Agustin Rojas
+title: Giftoky
+description: "Embark on a cosmic journey with astro.js, the framework that makes interstellar development a breeze. Pair it with Tailwind CSS for a design that's out of this world"
+images:
+    [
+        "https://xvifyrqivqsozuhckqte.supabase.co/storage/v1/object/public/Images/giftoky/386shots_so.png?t=2024-11-17T17%3A31%3A00.008Z",
+        "https://xvifyrqivqsozuhckqte.supabase.co/storage/v1/object/public/Images/giftoky/giftoky1.png?t=2024-07-07T06%3A56%3A36.918Z",
+        "https://xvifyrqivqsozuhckqte.supabase.co/storage/v1/object/public/Images/giftoky/giftoky3.png?t=2024-07-07T06%3A56%3A51.842Z",
+        "https://xvifyrqivqsozuhckqte.supabase.co/storage/v1/object/public/Images/giftoky/giftoky4.png?t=2024-07-07T06%3A56%3A58.555Z",
+    ]
+category: Apps
+tags: ["Apps", "React Native", "Expo", "Wordpress", "PHP"]
+slug: giftoky
+---
+
+import ProjectImages from "../../components/Atoms/ProjectImages.tsx";
+import expo from "@/assets/icons/expo.svg";
+import javascript from "@/assets/icons/javascript.svg";
+import typescript from "@/assets/icons/typescript.svg";
+import wordpress from "@/assets/icons/wordpress.svg";
+import php from "@/assets/icons/php.svg";
+import express  from "@/assets/icons/express.svg";
+import { Image } from "astro:assets";
+
+
+{/* <div className="flex flex-col laptop:flex-row laptop:items-center w-[80%] mx-auto px-4 self-center not-prose">
+
+
+</div> */}
+<div className=" w-full">{/* className="w-[100%]  */}
+    <ProjectImages client:load images={frontmatter.images} sx='object-contain tablet:object-contain '/>
+</div>
+
+GIFTOKY® is an app that allows users to note and share gift ideas, transforming them into meaningful presents. Developed with React Native and Expo for the front-end, it ensures an efficient user experience, while the back-end is powered by Node.js and WordPress. The app facilitates the creation of personalized wish lists and social interaction, enabling users to follow friends' profiles and anonymously reserve gifts.
+<div className="flex flex-col laptop:flex-row laptop:items-center w-[80%] mx-auto px-4 self-center not-prose">
+
+</div>
+GIFTOKY® streamlines gift planning and prevents duplicate presents, offering a free and accessible solution to enhance the quality and significance of received gifts. I joined the project after a year of prior development, resuming the paused work and successfully getting the app to work correctly on both iOS and Android. The app is now entering a public beta phase, welcoming users to test its features and provide feedback.
+
+<div className="not-prose">
+<div> <p className="font-chrono text-platinum text-4xl tracking-wide ">Stack</p></div>
+
+<div className="flex gap-2">
+<Image
+    src={expo}
+    alt="react"
+    class="rounded-md w-12 tablet:w-16 laptop:w-16"
+/>
+<Image
+    src={typescript}
+    alt="typescript"
+    class="rounded-md w-12 tablet:w-16 laptop:w-16"/>
+<Image
+    src={wordpress}
+    alt="wordpress"
+    class="rounded-md w-12 tablet:w-16 laptop:w-16"
+/>
+<Image
+    src={php}
+    alt="wordpress"
+    class="rounded-md w-12 tablet:w-16 laptop:w-16"
+/>
+<Image
+    src={express}
+    alt="wordpress"
+    class="rounded-md w-12 tablet:w-16 laptop:w-16"
+/>
+    </div>
+    
+</div>

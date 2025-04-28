@@ -1,0 +1,47 @@
+---
+import InteriorLayout from "@/layouts/InteriorLayout.astro";
+import Prose from "@/components/Atoms/Prose.astro";
+import type {
+  InferGetStaticParamsType,
+  InferGetStaticPropsType,
+  GetStaticPaths,
+} from "astro";
+import { render } from "astro:content";
+import { getCollection } from "astro:content";
+import PostTitle from "@/components/Atoms/PostTitle.astro";
+import CommentSection from "@/components/CommentSection";
+export const getStaticPaths = (async () => {
+  const posts = await getCollection("posts");
+  return posts.map((post) => {
+    return {
+      params: { slug: post.data.slug },
+      props: { post },
+    };
+  });
+}) satisfies GetStaticPaths;
+
+type Params = InferGetStaticParamsType<typeof getStaticPaths>;
+type Props = InferGetStaticPropsType<typeof getStaticPaths>;
+
+const { slug } = Astro.params as Params;
+//                   ^? { id: string; }
+
+const { post } = Astro.props;
+//                      ^? { draft: boolean; title: string; }
+const { Content } = await render(post);
+---
+
+<InteriorLayout title={"Blog | " + post.data.title}>
+  <PostTitle
+    title={post.data.title}
+    date={post.data.pubDate}
+    category={post.data.tags}
+  />
+  <Prose>
+    <Content />
+  </Prose>
+
+  <div class="mt-12">
+    <CommentSection client:load postSlug={post.data.slug} />
+  </div>
+</InteriorLayout>

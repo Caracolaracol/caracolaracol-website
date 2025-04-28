@@ -1,0 +1,216 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+@theme {
+  --breakpoint-*: initial;
+  --breakpoint-tablet: 768px;
+  --breakpoint-laptop: 1024px;
+  --breakpoint-desktop: 1280px;
+  --breakpoint-widescreen: 1440px;
+  --breakpoint-fullhd: 1920px;
+  --breakpoint-4k: 2560px;
+
+  /* Colors */
+  --color-*: initial;
+  --color-cerise: #D94A6D;
+  --color-viridian: #154e69;
+  --color-violet: #312559;
+  --color-violetl: oklch(0.72 0.1579 280.59);
+  /* oklch(0.72 0.1579 280.59); */
+  --color-ocre: #DE7F26;
+  /* Backgrounds */
+  --color-dark: #232031;
+
+  /* Text */
+  --color-platinum: #E8CFD4;
+  --color-timberwolf: #c0a8a2;
+  /*  BLACK AND WHITE */
+  --color-dark: #232031;
+  --color-snow: #F4EFF1;
+  /* font */
+  --font-chrono: chronoType;
+  --font-tommyBlack: tommyBlack;
+  --font-tommyBold: tommyBold;
+  --font-tommyLight: tommyLight;
+  --font-tommyMedium: tommyMedium;
+  --font-tommyRegular: tommyRegular;
+
+  --tw-prose-body: #E8CFD4;
+  --tw-prose-lead: #E8CFD4;
+
+}
+
+@font-face {
+  font-family: "tommyBlack";
+  src: url("/fonts/MADE TOMMY Black_PERSONAL USE.otf");
+}
+
+
+@font-face {
+  font-family: "chronoType";
+  src: url("/fonts/ChronoType.ttf");
+  font-display: block;
+}
+
+@font-face {
+  font-family: "tommyBold";
+  src: url("/fonts/MADE TOMMY ExtraBold_PERSONAL USE.otf");
+  font-display: block;
+}
+
+@font-face {
+    font-family: "tommyLight";
+    src: url("/fonts/MADE Tommy Soft Light PERSONAL USE.otf");
+    font-display: block;
+}
+
+@font-face {
+    font-family: "tommyMedium";
+    src: url("/fonts/MADE Tommy Soft Medium PERSONAL USE.otf");
+    font-display: block;
+}
+
+@font-face {
+    font-family: "tommyRegular";
+    src: url("/fonts/MADE Tommy Soft Regular PERSONAL USE.otf");
+    font-display: block;
+}
+
+@layer base {
+    :root {
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        text-rendering: optimizeLegibility;
+        color: var(--color-platinum);
+    }
+
+    html {
+        font-family: var(--font-tommyRegular);
+        font-size: 16px;
+        line-height: 1.5;
+        
+    }
+
+    body {
+        background-color: var(--color-dark);
+        color: var(--color-platinum);
+    }
+
+    a {
+
+        text-decoration: none;
+        -webkit-tap-highlight-color: var(--color-platinum);
+    }
+
+    h1 {
+        font-family: var(--font-tommyMedium);
+        font-size: 2.7rem;
+        line-height: 1.5;
+        color: var(--color-platinum);
+    }
+    h2{
+        font-family: var(--font-tommyMedium);
+        font-size: 1.6rem;
+        line-height: 1.5;
+        color: var(--color-platinum);
+    }
+
+    button {
+        @apply bg-violet hover:text-cerise font-tommyMedium px-4 py-1 tablet:py-2 rounded-lg transition-colors  cursor-pointer;
+    }
+    p {
+        @apply font-tommyMedium text-sm tablet:text-base laptop:text-base desktop:text-base;
+    }
+}
+
+@layer components {
+    .background_noise_dark {
+        background-image: url("/bgnoisedark.svg");
+        background-attachment: local;
+
+    }
+
+    .background_noise_firefox {
+        background-image: url("/bgnoisedarkff.svg");
+        background-attachment: local;
+    }
+
+    .circle_img_1 {
+        position: absolute;
+        z-index: 99;
+        clip-path: circle();
+        mask-image: radial-gradient(circle, rgb(0, 0, 0) 58%, transparent 65%);
+        -webkit-mask-image: radial-gradient(circle, rgb(0, 0, 0) 58%, transparent 65%);
+        border-radius: 9999px;
+    }
+    @keyframes grow95 {
+        0% {
+          width: 95%;
+          height: 90vh;
+        }
+        100% {
+          width: 100%;
+          height: 100%;
+          top:0;
+          padding-left: 0 !important;
+          margin-left: 0 !important;
+        }
+      }
+      @keyframes grow92 {
+        0% {
+          width: 92%;
+          height: 90vh;
+        }
+        100% {
+          width: 100%;
+          height: 100%;
+          top:0;
+          padding-left: 0 !important;
+          margin-left: 0 !important;
+        }
+      }
+      @keyframes grow90 {
+        0% {
+          width: 90%;
+          height: 90vh;
+        }
+        100% {
+          width: 100%;
+          height: 100%;
+          top:0;
+          padding-left: 0 !important;
+          margin-left: 0 !important;
+        }
+      }
+      @keyframes grow91 {
+        0% {
+          width:  84%;
+          height: 90vh;
+          opacity: 0;
+        }
+        10%{
+          opacity: 1;
+        }
+        100% {
+          width: 100%;
+          height: 100%;
+          top:0;
+          padding-left: 0 !important;
+          margin-left: 0 !important;
+        }
+      }
+      
+      .animate-grow-95 {
+        animation: grow95 1s ease-in-out forwards;
+      }
+      .animate-grow-92 {
+        animation: grow92 1s ease-in-out forwards;
+      }
+      .animate-grow-90 {
+        animation: grow90 1s ease-in-out forwards;
+      }
+    
+      .animate-grow-91 {
+        animation: grow91 1s ease-in-out forwards;
+      }
+}

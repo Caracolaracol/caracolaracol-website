@@ -1,0 +1,231 @@
+---
+import InteriorLayout from "@/layouts/InteriorLayout.astro";
+import obsidianfrog from "@/assets/images/illustrations/ranaobsidian.png";
+import ts from "@/assets/icons/typescript.svg";
+import py from "@/assets/icons/python.svg";
+import expo from "@/assets/icons/expo.svg";
+import firebase from "@/assets/icons/firebase.svg";
+import nextjs from "@/assets/icons/nextjs.svg";
+import ps from "@/assets/icons/photoshop.svg";
+import react from "@/assets/icons/react.svg";
+import tablet from "@/assets/icons/tablet.svg";
+import ae from "@/assets/icons/aftereffects.svg";
+import tailwind from "@/assets/icons/tailwind.svg";
+import pw from "@/assets/icons/playwright.svg";
+import astro from "@/assets/icons/astro.svg";
+import php from "@/assets/icons/php.svg";
+import gleam from "@/assets/icons/lucy.svg";
+import flutterflow from "@/assets/icons/flutterflow.jpeg";
+import wordpress from "@/assets/icons/wordpress.svg";
+import yo from "@/assets/images/yo3.webp";
+import moodle from "@/assets/icons/Moodle.svg";
+import supabase from "@/assets/icons/supabase.svg";
+import { Image } from "astro:assets";
+
+---
+
+<InteriorLayout title="Portfolio | Caracolaracol">
+        <div class="">
+          <div class="">
+            <h1
+              class="" 
+            >
+              Introduction
+            </h1>
+          </div>
+          <div class="my-1">
+            <p>
+              Hi! I'm Agustín Rojas, thank you for
+              vising my portfolio!, you've gained access a detailed archive of all
+              of my works. Although you can encounter mostly with my software
+              development projects and colaborations, there is also a significant
+              amount of artwork here.
+            </p>
+          </div>
+          <div class="flex justify-center my-4">
+            <Image src={obsidianfrog} alt="frog obsidian" width={240} />
+          </div>
+        </div>
+        <div class="">
+          <div class="">
+            <h1
+              class=""
+            >
+              About me
+            </h1>
+          </div>
+          <div>
+            <div
+              class="p-1 tablet:p-2 float-right min-w-[12em] tablet:min-w-[19em] w-[32vw] max-w-[28em]"
+            >
+              <Image class="rounded-md" src={yo} alt="yo" />
+              <div
+                class="flex flex-col tablet:block mt-2 my-4 bg-timberwolf/5 w-full px-2 rounded-sm"
+              >
+                <h2 class="font-chrono text-3xl">My links</h2>
+                <a
+                  class="text-xl mx-1 text-timberwolf hover:text-ocre transition-colors"
+                  href="https://github.com/Caracolaracol"
+                  target="_blank">Github</a
+                >
+                <a
+                  class="text-xl mx-1 text-timberwolf hover:text-ocre transition-colors"
+                  href="https://www.linkedin.com/in/agustin-rojas-c4r4c01/"
+                  target="_blank">Linkedin</a
+                >
+                <a
+                  class="text-xl mx-1 text-timberwolf hover:text-ocre transition-colors"
+                  href="https://www.instagram.com/caracolaracol/"
+                  target="_blank">Instagram</a
+                >
+                <a
+                  class="text-xl mx-1 text-timberwolf hover:text-ocre transition-colors"
+                  href="https://docs.google.com/document/d/1p8NlNx_SESv5QeNiyZMEQTllUpHzBwEa34wesV15dyI/edit?usp=sharing"
+                  target="_blank"
+                >
+                  CV
+                </a>
+              </div>
+            </div>
+            <div>
+              <p class="my-2">
+                I'm from Santiago, Chile. Here I work as a software engineer at <a
+                  href="https://www.tipddy.cl/"
+                  target="_blank">Tipddy</a
+                >, a great tech company with an awesome team that makes awesome
+                products and services.
+              </p>
+    
+              <p class="my-2">
+                I enjoy building things and creating art with different materials
+                each time. That will mean that when I want to create something, I
+                dont mind to spend a lot of time by learning the technique first and
+                then making the thing. I like the idea of never acomodate with just
+                one way of creating art, by changing the way every time I feel like
+                I already learned the skill.
+              </p>
+              <p class="my-2">
+                I'm also into Organic farming, in fact I'm a member of an urban
+                garden organization where I cultivate organic food in my own garden
+                plots.
+              </p>
+              <!-- <iframe src="https://lastfmstats.com/user/agustinrojasm/charts" style="border: none;" width="50%" height="500"></iframe> -->
+            </div>
+          </div>
+        </div>
+        <div class=" clear-end">
+          <div class="">
+            <h1
+              class=""
+            >
+              My Stack
+            </h1>
+          </div>
+          <p class="pb-2">
+            This is the set of tools or technologies that I currently use or prefer
+            when I build my projects.
+          </p>
+          <div class="flex flex-row flex-wrap gap-2 mb-4">
+            <div class="p-2 rounded-md">
+              <h2 class="font-chrono text-3xl ml-1">Programming languages</h2>
+              <div class="flex flex-row flex-wrap gap-2 p-2 rounded-md w-full">
+                <Image
+                  src={ts}
+                  alt="typescript"
+                  class="rounded-md w-12 tablet:w-16 laptop:w-16"
+                />
+                <Image
+                  src={py}
+                  alt="python"
+                  class="rounded-md w-12 tablet:w-16 laptop:w-16"
+                />
+                <Image
+                  src={php}
+                  alt="php"
+                  class="rounded-md w-12 tablet:w-16 laptop:w-16"
+                />
+                <Image
+                  src={gleam}
+                  alt="gleam"
+                  class="rounded-md w-12 tablet:w-16 laptop:w-16"
+                />
+              </div>
+            </div>
+            <div class="bg-raisinblack/55 p-2 rounded-md">
+              <h2 class="font-chrono text-3xl ml-1">Frameworks & Libraries</h2>
+              <div class="flex flex-row flex-wrap gap-2 p-2 rounded-md w-full">
+                <Image
+                  src={react}
+                  alt="react"
+                  class="rounded-md w-12 tablet:w-16 laptop:w-16"
+                />
+                <Image
+                  src={expo}
+                  alt="expo"
+                  class="rounded-md w-12 tablet:w-16 laptop:w-16"
+                />
+                <Image
+                  src={nextjs}
+                  alt="nextjs"
+                  class="rounded-md w-12 tablet:w-16 laptop:w-16"
+                />
+                <Image
+                  src={tailwind}
+                  alt="tailwind"
+                  class="rounded-md w-12 tablet:w-16 laptop:w-16"
+                />
+                <Image
+                  src={pw}
+                  alt="pw"
+                  class="rounded-md w-12 tablet:w-16 laptop:w-16"
+                />
+                <Image
+                  src={astro}
+                  alt="astro"
+                  class="rounded-md w-12 tablet:w-16 laptop:w-16"
+                />
+              </div>
+            </div>
+            <div class="p-2 rounded-md">
+              <h3 class="font-chrono text-3xl ml-1">Other tools</h3>
+              <div class="flex flex-row flex-wrap gap-2 p-2 rounded-md w-full">
+                <Image
+                  src={supabase}
+                  alt="firebase"
+                  class="rounded-md w-12 tablet:w-16 laptop:w-16"
+                />
+                <Image
+                  src={tablet}
+                  alt="tablet"
+                  class="rounded-md w-12 tablet:w-16 laptop:w-16"
+                />
+                <Image
+                  src={ps}
+                  alt="ps"
+                  class="rounded-md w-12 tablet:w-16 laptop:w-16"
+                />
+                <Image
+                  src={ae}
+                  alt="ae"
+                  class="rounded-md w-12 tablet:w-16 laptop:w-16"
+                />
+                <Image
+                  src={flutterflow}
+                  alt="flutterflow"
+                  class="rounded-md w-12 tablet:w-16 laptop:w-16"
+                />
+                <Image
+                  src={wordpress}
+                  alt="wordpress"
+                  class="rounded-md w-12 tablet:w-16 laptop:w-16"
+                />
+                <Image
+                  src={moodle}
+                  alt="wordpress"
+                  class="rounded-md w-12 tablet:w-16 laptop:w-16"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+</InteriorLayout>

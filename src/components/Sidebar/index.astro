@@ -1,0 +1,80 @@
+---
+import logo from "@/assets/logo.png";
+let pathname = Astro.url.pathname;
+
+import { getCollection } from "astro:content";
+import CategoryTitle from "../Atoms/CategoryTitle";
+import ProjectLink from "../Atoms/ProjectLink";
+import Navbar from "./Navbar";
+
+const collectionName = pathname.includes("/blog")
+  ? "posts"
+  : pathname.includes("/portfolio")
+    ? "projects"
+    : "posts";
+const collection = await getCollection(collectionName);
+
+// Para proyectos, agrupa por categoría
+let groupedProjects: Record<string, any[]> = {};
+if (collectionName === "projects") {
+  collection.forEach((project) => {
+    if (project.collection === "projects") {
+      const category = project.data.category || "Sin categoría";
+      if (!groupedProjects[category]) {
+        groupedProjects[category] = [];
+      }
+      groupedProjects[category].push(project);
+    }
+  });
+  // sort each project by date inside the category
+  Object.keys(groupedProjects).forEach((category) => {
+    groupedProjects[category].sort((a, b) => {
+      return (
+        new Date(b.data.pubDate).getTime() - new Date(a.data.pubDate).getTime()
+      );
+    });
+  });
+  // sort grouped projects by the following order: Web, Apps, Videos, Arts
+  const sortedProjects = Object.keys(groupedProjects).sort((a, b) => {
+    const order = ["Web", "Apps", "Videos", "Arts"];
+    return order.indexOf(a) - order.indexOf(b);
+  });
+  const sortedGroupedProjects:Record<string, any[]>  = {};
+  sortedProjects.forEach((category) => {
+    sortedGroupedProjects[category] = groupedProjects[category];
+  });
+  groupedProjects = sortedGroupedProjects;
+}
+---
+
+<aside class="py-5">
+  <nav>
+    <Navbar pathname={pathname}/>
+  </nav>
+  <div class="h-5 w-full"></div>
+
+  </div>
+
+  <!-- Lists of items -->
+  <div>
+    <ul class="flex flex-col w-full pl-3">
+      {
+        collectionName === "projects"
+          ? // Si es la colección de proyectos, mostrarlos agrupados por categoría
+            Object.entries(groupedProjects).map(([category, projects]) => (
+              <>
+                <div class="h-4 w-full"></div>
+                <CategoryTitle>{category}</CategoryTitle>
+                {projects.map((project) => (
+                  <ProjectLink  to={`/portfolio/${project.data.slug}`}>{project.data.title}</ProjectLink>
+                ))}
+              </>
+            ))
+          : // Si es otra colección (blog), mostrar la lista normal
+            collection.map((post) => (
+              <ProjectLink to={`/blog/${post.data.slug}`}>{post.data.title}</ProjectLink>
+            ))
+      }
+    </ul>
+  </div>
+</aside>
