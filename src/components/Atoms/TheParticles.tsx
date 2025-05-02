@@ -50,7 +50,7 @@ const TheParticles = () => {
       },
 
       particles: {
-        color: { value: "#D94A6D"},
+        color: { value: ["#D94A6D", "#9496ff"]},
         move: {
           direction: "none",
           enable: true,

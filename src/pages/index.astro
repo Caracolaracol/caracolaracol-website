@@ -7,7 +7,7 @@ import yo2 from "@/assets/images/yo5.jpg";
 ---
 
 <HomeLayout title="Caracolaracol | Home">
-  <div class="flex flex-col justify-center items-center z-10">
+  <div class="flex flex-col justify-center items-center z-10  select-none pointer-events-none">
     <header class="mb-4 flex h-[237px] w-64 justify-center">
       <!-- <CircleImages client:load /> -->
       <Image
@@ -18,35 +18,35 @@ import yo2 from "@/assets/images/yo5.jpg";
     </header>
     <main>
       <div>
-        <h1 class="text-[1.3rem] text-center tablet:text-5xl laptop:text-6xl desktop:text-7xl">
+        <h1 class="text-[1.3rem] text-center tablet:text-5xl laptop:text-6xl desktop:text-7xl select-none pointer-events-none">
           Agustín Rojas{" "}
           <span
-            class="text-ocre tablet:text-5xl laptop:text-6xl desktop:text-7xl font-tommyBold text-xl"
+            class="text-ocre tablet:text-5xl laptop:text-6xl desktop:text-7xl font-tommyBold text-xl select-none pointer-events-none"
             >{`//`}</span
           >{" "} Creative Developer
         </h1>
       </div>
-      <div class="flex justify-center h-4  my-4">
-        <h3 class="text-[.7em] tablet:text-[.9rem] laptop:text-[1.1rem] desktop:text-[1.2rem] antialiased w-[80%] text-center">Welcome to my site, Feel free to explore this cozy virtual space!</h3>
+      <div class="flex justify-center h-4 mb-8 my-4">
+        <h3 class="text-[.7em] tablet:text-[.9rem] laptop:text-[1.1rem] desktop:text-[1.2rem] antialiased w-[80%] text-center">Welcome to my site where I share what I build, create and write — from software to art and words. Feel free to explore!</h3>
       </div>
       <div class="flex justify-center gap-3 py-5">
 
         <a href="/portfolio">
 
           <button
-          class="bg-violet hover:text-cerise font-tommyMedium px-4 rounded-lg transition-colors w-[8rem] h-[2rem] tablet:h-[3rem] cursor-pointer flex items-center justify-center"
+          class="bg-violet select-none pointer-events-auto hover:text-cerise font-tommyMedium px-4 rounded-lg transition-colors w-[8rem] h-[2rem] tablet:h-[3rem] cursor-pointer flex items-center justify-center"
           ><h3>Portfolio</h3></button
           >
         </a>
         <a href="/blog">
           <button
-          class="bg-violet hover:text-cerise font-tommyMedium px-4 rounded-lg transition-colors w-[8rem] h-[2rem] tablet:h-[3rem] cursor-pointer flex items-center justify-center"
+          class="bg-violet select-none pointer-events-auto  hover:text-violetl font-tommyMedium px-4 rounded-lg transition-colors w-[8rem] h-[2rem] tablet:h-[3rem] cursor-pointer flex items-center justify-center"
           ><h3>Blog</h3></button
           >
         </a>
       </div>
     </main>
-    <HomeLinks transition:name="links" client:load>
+    <HomeLinks client:load>
       <div class={`flex justify-center gap-3`}></div>
     </HomeLinks>
   </div>

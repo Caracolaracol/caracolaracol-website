@@ -25,15 +25,15 @@ function Navbar({ pathname }: any) {
         <a href="/" className=" ml-4 z-50 tablet:mr-4 cursor-pointer">
           <img
             src={logo.src}
-            className="w-16 tablet:w-[3.9rem] drop-shadow-md transition-opacity-1 z-50"
+            className="w-16 scale-125 translate-x-6 tablet:translate-x-0 tablet:scale-100 translate-y-[1.1rem] tablet:translate-y-0 tablet:w-[3.9rem] drop-shadow-md transition-opacity-1 z-50"
             alt="caracol"
           />
         </a>
         <a
           href="/blog"
           className={`${
-            pathname.includes("/blog") && "bg-cerise"
-          } hidden tablet:block cursor-pointer p-2 rounded-t-md rounded-bl-md`}
+            pathname.includes("/blog") ? "bg-violetl" :"bg-violetl/20"
+          }  hidden tablet:block cursor-pointer p-2 rounded-t-md rounded-bl-md`}
         >
           <li
             className=""
@@ -46,8 +46,8 @@ function Navbar({ pathname }: any) {
         <a
           href="/portfolio"
           className={`${
-            pathname.includes("/portfolio") &&
-            "bg-cerise cursor-pointer transition-colors"
+            pathname.includes("/portfolio") ?
+            "bg-cerise cursor-pointer transition-colors" : "bg-cerise/20 cursor-pointer transition-colors"
           } p-2 mr-4 tablet:mr-2 laptop:mr-0 rounded-t-md rounded-br-md`}
         >
           <li
@@ -64,7 +64,7 @@ function Navbar({ pathname }: any) {
       <a
           href="/blog"
           className={`${
-              pathname.includes("/blog") && "bg-violetl"
+              pathname.includes("/blog") ? "bg-violetl" :"bg-violetl/20"
             } tablet:hidden block cursor-pointer p-2 rounded-t-md rounded-br-md`}
             >
           <li

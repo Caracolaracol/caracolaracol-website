@@ -2,10 +2,11 @@
 import MainLayout from "./MainLayout.astro";
 import Sidebar from "@/components/Sidebar/index.astro";
 const { title } = Astro.props;
+let pathname = Astro.url.pathname;
 ---
 
 <MainLayout title={title}>
-  <div class="bg-cerise z-50 h-0.5 laptop:h-3 w-full fixed background_noise"/>
+  <div class={`${pathname.includes("/blog") ? "bg-violetl" : "bg-cerise"} z-50 h-0.5 laptop:h-3 w-full fixed background_noise`}/>
   
   <!-- Mobile Sidebar Toggle Button - only visible on mobile -->
   <button 

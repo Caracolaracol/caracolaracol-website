@@ -47,23 +47,21 @@ if (collectionName === "projects") {
 }
 ---
 
-<aside class="py-5">
+<aside class="pt-2 tablet:pt-5 flex flex-col h-full">
   <nav>
     <Navbar pathname={pathname}/>
   </nav>
-  <div class="h-5 w-full"></div>
-
-  </div>
+  <div class="h-5 hidden tablet:block w-full"></div>
 
   <!-- Lists of items -->
-  <div>
-    <ul class="flex flex-col w-full pl-3">
+  <div class="overflow-y-auto ">
+    <ul class="flex flex-col w-full pl-3 " >
       {
         collectionName === "projects"
           ? // Si es la colección de proyectos, mostrarlos agrupados por categoría
             Object.entries(groupedProjects).map(([category, projects]) => (
               <>
-                <div class="h-4 w-full"></div>
+                <div class="h-4  hidden tablet:block w-full"></div>
                 <CategoryTitle>{category}</CategoryTitle>
                 {projects.map((project) => (
                   <ProjectLink  to={`/portfolio/${project.data.slug}`}>{project.data.title}</ProjectLink>
