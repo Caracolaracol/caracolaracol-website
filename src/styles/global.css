@@ -151,7 +151,7 @@
     }
     @keyframes grow95 {
         0% {
-          width: 95%;
+          width: 80%;
           height: 90vh;
         }
         100% {
@@ -164,7 +164,7 @@
       }
       @keyframes grow92 {
         0% {
-          width: 92%;
+          width: 90%;
           height: 90vh;
         }
         100% {

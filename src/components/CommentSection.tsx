@@ -187,7 +187,7 @@ export default function CommentSection({ postSlug }: CommentSectionProps) {
   };
   
   return (
-    <div className="mt-12 pt-8 border-t">
+    <div className="mt-12 pt-8 border-t  border-t-snow/15 ">
       <h2 className="text-2xl font-bold mb-6">Comments</h2>
       
       {/* Comment submission form */}
@@ -201,7 +201,7 @@ export default function CommentSection({ postSlug }: CommentSectionProps) {
             id="name"
             value={newComment.name}
             onChange={(e) => setNewComment({...newComment, name: e.target.value})}
-            className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-cerise"
+            className="w-full px-3 py-2 border border-snow/15 rounded-md focus:outline-none focus:ring-2 focus:ring-violetl"
             required
             disabled={rateLimited}
           />
@@ -216,7 +216,7 @@ export default function CommentSection({ postSlug }: CommentSectionProps) {
             rows={4}
             value={newComment.content}
             onChange={(e) => setNewComment({...newComment, content: e.target.value})}
-            className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-cerise"
+            className="w-full px-3 py-2 border border-snow/15 rounded-md focus:outline-none focus:ring-2 focus:ring-violetl"
             required
             disabled={rateLimited}
           ></textarea>
@@ -225,7 +225,7 @@ export default function CommentSection({ postSlug }: CommentSectionProps) {
         <button
           type="submit"
           disabled={isSubmitting || rateLimited}
-          className="bg-cerise text-white py-2 px-4 rounded-md hover:bg-cerise/80 transition-colors disabled:opacity-50"
+          className="bg-violetl text-white py-2 px-4 hover:text-ocre rounded-md hover:bg-violetl/80 transition-colors disabled:opacity-50"
         >
           {isSubmitting ? 'Submitting...' : rateLimited ? `Wait ${timeRemaining}s` : 'Submit Comment'}
         </button>

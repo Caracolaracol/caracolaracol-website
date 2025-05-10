@@ -32,7 +32,7 @@ function Navbar({ pathname }: any) {
         <a
           href="/blog"
           className={`${
-            pathname.includes("/blog") ? "bg-violetl" :"bg-violetl/20"
+            pathname.includes("/blog") ? "bg-violetl" : "bg-violetl/20"
           }  hidden tablet:block cursor-pointer p-2 rounded-t-md rounded-bl-md`}
         >
           <li
@@ -46,8 +46,9 @@ function Navbar({ pathname }: any) {
         <a
           href="/portfolio"
           className={`${
-            pathname.includes("/portfolio") ?
-            "bg-cerise cursor-pointer transition-colors" : "bg-cerise/20 cursor-pointer transition-colors"
+            pathname.includes("/portfolio")
+              ? "bg-cerise cursor-pointer transition-colors"
+              : "bg-cerise/20 cursor-pointer transition-colors"
           } p-2 mr-4 tablet:mr-2 laptop:mr-0 rounded-t-md rounded-br-md`}
         >
           <li
@@ -59,23 +60,23 @@ function Navbar({ pathname }: any) {
           </li>
         </a>
       </ul>
+      {/* boton en mobile */}
       <div className="flex tablet:hidden justify-end w-[16rem] ">
-
-      <a
+        <a
           href="/blog"
           className={`${
-              pathname.includes("/blog") ? "bg-violetl" :"bg-violetl/20"
-            } tablet:hidden block cursor-pointer p-2 rounded-t-md rounded-br-md`}
-            >
+            pathname.includes("/blog") ? "bg-violetl" : "bg-violetl/20"
+          } tablet:hidden block cursor-pointer p-2 w-[95px] rounded-b-md rounded-tr-md`}
+        >
           <li
-            className="list-none font-tommyMedium text-xl text-end"
+            className="list-none font-tommyMedium text-center text-xl"
             onMouseEnter={handlerMouseLinks}
             onMouseLeave={handlerLeaveLinks}
-            >
+          >
             Blog
           </li>
         </a>
-              </div>
+      </div>
       <div
         ref={refLinks}
         className={`bg-cerise absolute left-[var(--left)] top-[var(--top)] z-50 h-[var(--height)] w-[var(--width)] rounded-md opacity-25 backdrop-blur-lg transition-all duration-300 ease-in-out`}

@@ -6,11 +6,15 @@ import { Today, Label } from "@/assets/icons/Icons";
 let pubDate = DateTime.fromJSDate(date).toLocaleString(
   DateTime.DATE_MED_WITH_WEEKDAY
 );
+/* If we are in blog, title is color violetl */
+const isBlog = Astro.url.pathname.includes("/blog");
+
 ---
 
-<div class="bg-cerise mb-10 flex flex-col h-[5.5rem] tablet:h-[7rem] justify-center px-8">
+<div class={`${isBlog ? "bg-violetl/70" : "bg-cerise/70"} mb-10 flex flex-col h-[5.5rem] tablet:h-[7rem] justify-center px-8`}>
   <h1
-    class="tablet:tracking-wide tablet:text-5xl laptop:text-5xl desktop:text-5xl laptop:tracking-normal cursor-default text-[2.1rem]"
+    class="tablet:tracking-wide tablet:text-5xl laptop:text-5xl desktop:text-5xl laptop:tracking-normal cursor-default text-[2.1rem] w-fit"
+    transition:name="post-title"
   >
     {title}
   </h1>
