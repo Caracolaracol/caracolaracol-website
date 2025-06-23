@@ -47,7 +47,7 @@ function HomeLinks() {
                 >
                     <a
                         className={styles}
-                        href="https://www.linkedin.com/in/agustin-rojas-c4r4c01/"
+                        href="https://www.linkedin.com/in/agustin-rojas-dev/"
                         target="_blank"
                     >
                         Linkedin
