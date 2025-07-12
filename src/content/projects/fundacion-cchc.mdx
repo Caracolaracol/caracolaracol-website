@@ -1,0 +1,75 @@
+
+---
+pubDate: 2023-10-12
+author: Agustin Rojas
+title: Fundación CChC
+description: "Embark on a cosmic journey with astro.js, the framework that makes interstellar development a breeze. Pair it with Tailwind CSS for a design that's out of this world"
+images: [
+    "https://xvifyrqivqsozuhckqte.supabase.co/storage/v1/object/public/Images/fundacion-cchc/CChC%20-%20Apoyo%20y%20Crecimiento%20para%20la%20Construcci_n%20en%20Chile%20(1).jpeg",
+    "https://xvifyrqivqsozuhckqte.supabase.co/storage/v1/object/public/Images/fundacion-cchc/CChC%20-%20Apoyo%20y%20Crecimiento%20para%20la%20Construcci_n%20en%20Chile%205.43pm%2007-12%20(2).jpeg",
+    "https://xvifyrqivqsozuhckqte.supabase.co/storage/v1/object/public/Images/fundacion-cchc/CChC%20-%20Apoyo%20y%20Crecimiento%20para%20la%20Construcci_n%20en%20Chile%20%205.43pm%2007-12%20(3).jpeg",
+]
+
+category: Web
+tags: ["Web", "React", "Astro", "Strapi"]
+slug: fundacion-cchc
+---
+import astro from "@/assets/icons/astro.svg";
+import strapi from "@/assets/icons/strapi.svg";
+import react from "@/assets/icons/react.svg";
+import  ProjectImages  from '../../components/Atoms/ProjectImages.tsx'
+import { Image } from "astro:assets";
+
+<ProjectImages client:load images={frontmatter.images}/>
+
+## Fundación CChC
+
+A modern, content-driven website developed for Fundación CChC (Fundación de la Cámara Chilena de la Construcción). This project focused on creating a robust platform to showcase the foundation's social initiatives, educational programs, and community impact in Chile's construction sector.
+
+### Project Overview
+
+The website serves as a digital hub for Fundación CChC's mission to promote social development, education, and community welfare within Chile's construction industry. Built with modern web technologies, the platform provides an efficient content management system for the foundation's team while delivering an optimal user experience for visitors seeking information about programs, initiatives, and ways to get involved.
+
+### Key Features
+
+**Content Management System**
+- Powered by Strapi CMS for flexible content creation and management
+- Custom content types tailored to foundation activities and programs
+- User-friendly admin interface for non-technical staff
+- Multi-media support for showcasing projects and impact stories
+
+**Modern Frontend Architecture**
+- Built with Astro.js for optimal performance and SEO
+- Static site generation with dynamic content integration
+- Component-based architecture for maintainable code
+- Responsive design across all device types
+- Some Client side components are built with React
+
+**Foundation-Specific Features**
+- Program showcase sections highlighting educational initiatives
+- Impact stories and testimonials from beneficiaries
+- News and updates system for foundation activities
+- Contact and collaboration forms for community engagement
+
+<div className="not-prose">
+<div> <p className="font-chrono text-platinum text-4xl tracking-wide ">Stack</p></div>
+<div className="flex gap-2">
+<Image
+    src={astro}
+    alt="astro"
+    class="rounded-md w-12 tablet:w-16 laptop:w-16"
+/>
+<Image
+    src={strapi}
+    alt="strapi"
+    class="rounded-md w-12 tablet:w-16 laptop:w-16"
+/>
+<Image
+    src={react}
+    alt="react"
+    class="rounded-md w-12 tablet:w-16 laptop:w-16"
+/>
+</div>
+
+</div>
+
