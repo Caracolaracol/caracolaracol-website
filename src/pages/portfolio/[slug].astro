@@ -30,12 +30,11 @@ const { post } = Astro.props;
 const { Content } = await render(post);
 ---
 
-<InteriorLayout title={'Portfolio | ' + post.data.title}>
+<InteriorLayout title={"Portfolio | " + post.data.title}>
   <h1>
     {post.data.title}
   </h1>
   <Prose>
     <Content />
   </Prose>
-
 </InteriorLayout>

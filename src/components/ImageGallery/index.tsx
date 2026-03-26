@@ -10,7 +10,7 @@ function ImageGallery({ slides }: any) {
   return (
     <>
       <div className="bg-cerise h-3 w-full fixed top-0 left-0 z-[99]"></div>
-    <div className="bg-dark background_noise_dark_firefox absolute z-[999] right-0 top-6   tablet:w-[92%] tablet:animate-grow-92 laptop:w-[90%] laptop:animate-grow-90 desktop:animate-grow-91 desktop:w-[91%]  fullhd:mx-auto flex w-[95%] animate-grow-95">
+    <div className="bg-dark background_noise_dark absolute z-[999] right-0 top-6   tablet:w-[92%] tablet:animate-grow-92 laptop:w-[90%] laptop:animate-grow-90 desktop:animate-grow-91 desktop:w-[91%]  fullhd:mx-auto flex w-[95%] animate-grow-95">
       <div style={isColorGallery ? { backgroundColor: isColorGallery + '99' } : {}} className={`absolute z-50 transition-color  top-0 left-0 w-full h-full duration-1000 ${!isColorGallery ? 'bg-raisinblack' : ''} `}>
         <div>
           <div className=" flex flex-row mt-7 py-2  justify-start items-center px-8 ">

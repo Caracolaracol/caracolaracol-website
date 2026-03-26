@@ -96,6 +96,19 @@
         color: var(--color-platinum);
     }
 
+    body::after {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      pointer-events: none;
+      background-image: url("/framernoise.png");
+      background-repeat: repeat;
+      /* background-size: 256px 256px; */
+      opacity: 0.05;
+      mix-blend-mode: soft-light;
+    }
+
     a {
 
         text-decoration: none;
@@ -131,7 +144,7 @@
 
 @layer components {
     .background_noise_dark {
-        background-image: url("/bgnoisedark.svg");
+        background-image: url("/bgnoisedarkff.svg");
         background-attachment: local;
 
     }
@@ -140,6 +153,11 @@
         background-image: url("/bgnoisedarkff.svg");
         background-attachment: local;
     }
+
+  .background_noise_firefox.background_noise_dark,
+  .background_noise_firefox .background_noise_dark {
+    background-image: url("/bgnoisedarkff.svg");
+  }
 
     .circle_img_1 {
         position: absolute;

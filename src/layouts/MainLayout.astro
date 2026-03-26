@@ -23,11 +23,15 @@ let pathname = Astro.url.pathname;
   </body>
 </html>
 <script is:inline>
-  document.addEventListener("DOMContentLoaded", function () {
-    if (navigator.userAgent.toLowerCase().includes("firefox")) {
-      document.body.classList.add("background_noise_dark_firefox");
-    } else {
-      document.body.classList.add("background_noise_dark");
-    }
-  });
+  function applyBrowserNoiseBackground() {
+    const isFirefox = navigator.userAgent.toLowerCase().includes("firefox");
+
+    document.body.classList.toggle("background_noise_firefox", isFirefox);
+    document.body.classList.toggle("background_noise_dark", true);
+  }
+
+  applyBrowserNoiseBackground();
+  document.addEventListener("DOMContentLoaded", applyBrowserNoiseBackground);
+  document.addEventListener("astro:page-load", applyBrowserNoiseBackground);
+  document.addEventListener("astro:after-swap", applyBrowserNoiseBackground);
 </script>

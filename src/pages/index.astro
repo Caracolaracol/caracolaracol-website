@@ -1,6 +1,7 @@
 ---
 import HomeLayout from "@/layouts/HomeLayout.astro";
 import HomeLinks from "@/components/Home/HomeLinks";
+import NowPlaying from "@/components/Home/NowPlaying";
 import TheParticles from "@/components/Atoms/TheParticles.tsx";
 import { Image } from "astro:assets";
 import yo2 from "@/assets/images/yo5.jpg";
@@ -27,7 +28,7 @@ import yo2 from "@/assets/images/yo5.jpg";
         </h1>
       </div>
       <div class="flex justify-center h-4 mb-8 my-4">
-        <h3 class="text-[.7em] tablet:text-[.9rem] laptop:text-[1.1rem] desktop:text-[1.2rem] antialiased w-[80%] text-center">Welcome to my site where I share what I build, create and write — from software to art and words. Feel free to explore!</h3>
+        <h3 class="text-[.7em] tablet:text-[.9rem] laptop:text-[1.1rem] desktop:text-[1.2rem] antialiased w-[80%] text-center">Welcome to my site where I share what I build, create and write — from software to art and stories. Feel free to explore!</h3>
       </div>
       <div class="flex justify-center gap-3 py-5">
 
@@ -49,6 +50,11 @@ import yo2 from "@/assets/images/yo5.jpg";
     <HomeLinks client:load>
       <div class={`flex justify-center gap-3`}></div>
     </HomeLinks>
+    <NowPlaying
+      client:load
+      username="agustinrojasm"
+      profileUrl="https://www.last.fm/es/user/agustinrojasm"
+    />
   </div>
   <TheParticles client:load />
 </HomeLayout>

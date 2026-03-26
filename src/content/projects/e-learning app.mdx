@@ -1,0 +1,92 @@
+---
+pubDate: 2023-10-12
+author: Agustin Rojas
+title: E-learning App
+description: "Embark on a cosmic journey with astro.js, the framework that makes interstellar development a breeze. Pair it with Tailwind CSS for a design that's out of this world"
+images:
+  [
+
+    "https://xvifyrqivqsozuhckqte.supabase.co/storage/v1/object/public/Images/elearning/Aprende3.jpeg",
+    "https://xvifyrqivqsozuhckqte.supabase.co/storage/v1/object/public/Images/elearning/Aprende4.jpeg",
+    "https://xvifyrqivqsozuhckqte.supabase.co/storage/v1/object/public/Images/elearning/campus2.jpeg",
+    "https://xvifyrqivqsozuhckqte.supabase.co/storage/v1/object/public/Images/elearning/campus.jpeg"
+  ]
+illustrations:
+  [
+    "https://xvifyrqivqsozuhckqte.supabase.co/storage/v1/object/public/Images/iron-plant/rana2.png?t=2024-07-17T01%3A30%3A16.919Z",
+  ]
+category: Web
+tags: ["Web", "React", "Tailwind", "Moodle"]
+slug: e-learning-app
+---
+
+import moodle from "@/assets/icons/Moodle.svg";
+import wordpress from "@/assets/icons/wordpress.svg";
+import react from "@/assets/icons/react.svg";
+import tailwind from "@/assets/icons/tailwind.svg";
+import nextjs from "@/assets/icons/nextjs.svg";
+import { Image } from "astro:assets";
+
+import ProjectImages from "../../components/Atoms/ProjectImages.tsx";
+
+<ProjectImages client:load images={frontmatter.images} />
+
+A flexible and adaptive platform designed for students across various educational institutions. This application serves as a unified interface, tailored to each institution’s branding, colors, and specific requirements, ensuring a seamless and familiar experience for every user.
+
+## Project Overview
+
+The E-learning App was developed to simplify and enhance the digital learning experience for students. By providing a customizable interface, the platform can be easily adapted to the unique identity of each educational institution, supporting a wide range of academic environments.
+
+Built with **React**, the current version delivers a fast and responsive user experience. A new version, developed with **Next.js**, is underway to further improve performance, scalability, and SEO capabilities.
+
+## Key Features
+
+### Customizable Design
+
+- Adapts to each institution’s branding, colors, and visual identity
+- Flexible layout and components for different educational needs
+- Responsive design for optimal usability on all devices
+
+### Seamless Integrations
+
+- Connects directly with **Moodle** to retrieve academic data, assignments, and resources
+- Integrates with a separate **WordPress**-based system to manage configuration data for each institution
+- Ensures secure and reliable data exchange between platforms
+
+### Student-Centric Features
+
+- Personalized dashboards and course overviews
+- Access to grades, schedules, and learning materials
+- Notifications and updates tailored to each student’s needs
+
+<div className="not-prose">
+<div> <p className="font-chrono text-platinum text-4xl tracking-wide ">Stack</p></div>
+<div className="flex gap-2">
+
+<Image
+    src={wordpress}
+    alt="wordpress"
+    class="rounded-md w-12 tablet:w-16 laptop:w-16"
+/>
+<Image
+    src={react}
+    alt="react"
+    class="rounded-md w-12 tablet:w-16 laptop:w-16"
+ />
+<Image
+
+    src={tailwind}
+    alt="tailwind"
+    class="rounded-md w-12 tablet:w-16 laptop:w-16"
+/>
+<Image
+    src={nextjs}
+    alt="nextjs"
+    class="rounded-md w-12 tablet:w-16 laptop:w-16"
+/>
+<Image src={moodle} alt="moodle" class="rounded-md w-12 tablet:w-16 laptop:w-16" />
+
+
+</div>
+
+</div>

@@ -3,6 +3,7 @@
 interface ImportMetaEnv {
   readonly SUPABASE_URL: string;
   readonly SUPABASE_ANON_KEY: string;
+  readonly PUBLIC_LASTFM_API_KEY?: string;
 }
 
 interface ImportMeta {
