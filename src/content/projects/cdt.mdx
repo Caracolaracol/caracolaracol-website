@@ -1,0 +1,60 @@
+---
+pubDate: 2026-27-03
+author: Agustin Rojas
+title: CDT
+description: "Website for the Corporación de Desarrollo Tecnológico (CDT) of the Cámara Chilena de la Construcción, featuring personalized content, user authentication, and a likes system."
+images:
+    [
+        "https://xvifyrqivqsozuhckqte.supabase.co/storage/v1/object/public/Images/projects/cdt/Screenshot%202026-03-27%20at%2022-52-34%20Home%20CDT.png",
+        "https://xvifyrqivqsozuhckqte.supabase.co/storage/v1/object/public/Images/projects/cdt/Screenshot%202026-03-27%20at%2022-53-00%20Zona%20Privada%20-%20CDT.png",
+        "https://xvifyrqivqsozuhckqte.supabase.co/storage/v1/object/public/Images/projects/cdt/Screenshot%202026-03-27%20at%2022-53-20%20Iniciar%20Sesin%20CDT.png"
+    ]
+category: Web
+tags: ["Apps", "Astro", "React", "TypeScript", "Wordpress"]
+slug: cdt
+---
+
+import ProjectImages from "../../components/Atoms/ProjectImages.tsx";
+import astro from "@/assets/icons/astro.svg";
+import react from "@/assets/icons/react.svg";
+import TypeScript from "@/assets/icons/typescript.svg";
+import wordpress from "@/assets/icons/wordpress.svg";
+import php from "@/assets/icons/php.svg";
+import { Image } from "astro:assets";
+
+<ProjectImages client:load images={frontmatter.images} />
+
+I developed the website for CDT (Corporación de Desarrollo Tecnológico), a branch of the Cámara Chilena de la Construcción focused on driving innovation, productivity, and sustainability in the construction industry. The platform serves as a central hub for news, technical content, multimedia resources, normative updates, and events such as ENAMAC, ENASOC, and ENAPROD.
+
+The front-end is built with Astro and React components, delivering a fast, modern experience. The back-end runs on WordPress, managing multiple custom post types that cover different content categories like news, technical documents, podcasts, and streaming. I implemented a likes system that allows users to save and interact with content, along with a full authentication flow for both regular users and site administrators. The private zone lets each user define their content preferences, creating a personalized feed tailored to their interests within the construction sector.
+
+<div className="not-prose">
+<div> <p className="font-chrono text-platinum text-4xl tracking-wide ">Stack</p></div>
+<div className="flex gap-2">
+<Image
+    src={astro}
+    alt="Astro"
+    class="rounded-md w-12 tablet:w-16 laptop:w-16"
+/>
+<Image
+    src={react}
+    alt="React"
+    class="rounded-md w-12 tablet:w-16 laptop:w-16"
+/>
+<Image
+    src={TypeScript}
+    alt="TypeScript"
+    class="rounded-md w-12 tablet:w-16 laptop:w-16"
+/>
+<Image
+    src={wordpress}
+    alt="WordPress"
+    class="rounded-md w-12 tablet:w-16 laptop:w-16"
+/>
+<Image
+    src={php}
+    alt="PHP"
+    class="rounded-md w-12 tablet:w-16 laptop:w-16"
+/>
+</div>
+</div>

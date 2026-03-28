@@ -147,7 +147,9 @@ export default function NowPlaying({ username, profileUrl }: NowPlayingProps) {
 
         <div className="flex w-full items-center justify-center gap-3 text-left">
           <div className="flex h-16 w-16 shrink-0 items-center justify-center overflow-hidden rounded-xl border border-snow/10">
-            {track?.artwork ? (
+            {status === "loading" ? (
+              <div className="h-full w-full animate-pulse bg-snow/10" aria-hidden="true" />
+            ) : track?.artwork ? (
               <img src={track.artwork} alt={`${track.name} cover art`} className="h-full w-full object-cover" />
             ) : (
               <span className="font-chrono text-3xl leading-none text-ocre">{`~`}</span>

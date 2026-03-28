@@ -65,9 +65,9 @@ function ProjectImages({ images, sx='object-cover tablet:object-cover' }: { imag
               {images && (
                 <img
                   onClick={() => setOpenLightbox(true)}
-                  alt={images[indexImage]}
+                  alt="Project image"
                   src={images[indexImage]}
-                  className={`absolute  w-full h-[12rem] tablet:h-full  rounded-lg ${sx} tablet:aspect-video  transition-opacity opacity-100 ease-in-out ${
+                  className={`absolute  w-full h-[12rem] tablet:h-full  rounded-lg text-transparent ${sx} tablet:aspect-video  transition-opacity opacity-100 ease-in-out ${
                     imageLoaded ? "opacity-0" : "opacity-100"
                   } `}
                 />
@@ -75,9 +75,9 @@ function ProjectImages({ images, sx='object-cover tablet:object-cover' }: { imag
               {images && (
                 <img
                   onClick={() => setOpenLightbox(true)}
-                  alt={images[indexNextImage]}
+                  alt="Project image"
                   src={images[indexNextImage]}
-                  className={`absolute w-full h-[12rem] tablet:h-full rounded-lg ${sx}  tablet:aspect-video  transition-opacity ease-in-out ${
+                  className={`absolute w-full h-[12rem] tablet:h-full rounded-lg text-transparent ${sx}  tablet:aspect-video  transition-opacity ease-in-out ${
                     imageLoaded ? "opacity-100" : "opacity-0"
                   }`}
                 />
@@ -99,9 +99,9 @@ function ProjectImages({ images, sx='object-cover tablet:object-cover' }: { imag
                   className="mx-[0.2em] laptop:mx-0 aspect-square border-2 border-transparent  rounded-md  overflow-hidden hover:brightness-125 block"
                 >
                   <img
-                    alt="imgs"
+                    alt="Project thumbnail"
                     src={image}
-                    className="object-fill scale-[3] "
+                    className="object-fill scale-[3] text-transparent"
                   />
                 </button>
               ))}
