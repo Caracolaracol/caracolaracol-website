@@ -1,73 +1,21 @@
-import { useEffect, useState } from "react";
-
-type DuolingoCourse = {
+export type DuolingoCourse = {
   title: string;
   xp: number;
   id: string;
 };
 
-type DuolingoUser = {
+export type DuolingoUser = {
   username: string;
-  picture: string;
   streak: number;
   totalXp: number;
   courses: DuolingoCourse[];
 };
 
 interface DuolingoWidgetProps {
-  username: string;
+  data: DuolingoUser | null;
 }
 
-const DUOLINGO_API_URL = "https://www.duolingo.com/2017-06-30/users";
-
-export default function DuolingoWidget({ username }: DuolingoWidgetProps) {
-  const [user, setUser] = useState<DuolingoUser | null>(null);
-  const [status, setStatus] = useState<"loading" | "ready" | "error">("loading");
-
-  useEffect(() => {
-    let cancelled = false;
-
-    async function fetchDuolingoStats() {
-      try {
-        const res = await fetch(
-          `${DUOLINGO_API_URL}?username=${encodeURIComponent(username)}`
-        );
-
-        if (!res.ok) {
-          throw new Error(`Duolingo request failed with ${res.status}`);
-        }
-
-        const data = await res.json();
-        const userData = data.users?.[0];
-
-        if (!userData) {
-          throw new Error("User not found");
-        }
-
-        if (!cancelled) {
-          setUser({
-            username: userData.username ?? username,
-            picture: "",
-            streak: userData.streak ?? 0,
-            totalXp: userData.totalXp ?? 0,
-            courses: userData.courses ?? [],
-          });
-          setStatus("ready");
-        }
-      } catch (error) {
-        if (!cancelled) {
-          console.error("Unable to fetch Duolingo stats", error);
-          setStatus("error");
-        }
-      }
-    }
-
-    fetchDuolingoStats();
-
-    return () => {
-      cancelled = true;
-    };
-  }, [username]);
+export default function DuolingoWidget({ data: user }: DuolingoWidgetProps) {
 
   return (
     <div className="w-full rounded-2xl border border-snow/12 border-dotted px-5 py-5 backdrop-blur-[2px]">
@@ -76,23 +24,13 @@ export default function DuolingoWidget({ username }: DuolingoWidgetProps) {
         <span>Duolingo</span>
       </div>
 
-        {status === "loading" && (
-          <div className="flex items-center gap-4">
-            <div className="h-14 w-14 animate-pulse rounded-full bg-snow/10" />
-            <div className="flex-1 space-y-2">
-              <div className="h-4 w-32 animate-pulse rounded bg-snow/10" />
-              <div className="h-3 w-20 animate-pulse rounded bg-snow/10" />
-            </div>
-          </div>
-        )}
-
-        {status === "error" && (
+        {!user && (
           <p className="text-sm text-timberwolf">
             Could not load Duolingo stats.
           </p>
         )}
 
-        {status === "ready" && user && (
+        {user && (
           <>
             <div className="grid grid-cols-2 gap-4 text-center">
               <div>

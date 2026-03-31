@@ -21,7 +21,29 @@ import moodle from "@/assets/icons/Moodle.svg";
 import supabase from "@/assets/icons/supabase.svg";
 import { Image } from "astro:assets";
 import DuolingoWidget from "@/components/DuolingoWidget";
+import type { DuolingoUser } from "@/components/DuolingoWidget";
 import LastFmStats from "@/components/LastFmStats";
+
+let duolingoData: DuolingoUser | null = null;
+try {
+  const res = await fetch(
+    `https://www.duolingo.com/2017-06-30/users?username=${encodeURIComponent("agustn305652")}`
+  );
+  if (res.ok) {
+    const json = await res.json();
+    const u = json.users?.[0];
+    if (u) {
+      duolingoData = {
+        username: u.username ?? "agustn305652",
+        streak: u.streak ?? 0,
+        totalXp: u.totalXp ?? 0,
+        courses: u.courses ?? [],
+      };
+    }
+  }
+} catch (e) {
+  console.error("Failed to fetch Duolingo data at build time", e);
+}
 
 ---
 
@@ -153,7 +175,7 @@ import LastFmStats from "@/components/LastFmStats";
     <h1>Stats</h1>
     <div class="grid grid-cols-1 tablet:grid-cols-2 gap-4 mt-4">
       <LastFmStats client:idle username="agustinrojasm" />
-      <DuolingoWidget client:idle username="agustn305652" />
+      <DuolingoWidget data={duolingoData} />
     </div>
   </section>
 
