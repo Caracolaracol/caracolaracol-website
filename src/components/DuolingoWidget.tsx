@@ -34,16 +34,18 @@ export default function DuolingoWidget({ data: user }: DuolingoWidgetProps) {
           <>
             <div className="grid grid-cols-2 gap-4 text-center">
               <div>
-                <p className="text-2xl font-chrono text-[#ff9600]">
-                  🔥 {user.streak}
-                </p>
-                <p className="text-xs text-timberwolf">Streak</p>
+                <div className="flex items-center justify-center gap-1">
+                  <span className="text-2xl mb-[7px]">🔥</span>
+                  <span className="text-3xl font-chrono text-[#ff9600]">{user.streak}</span>
+                </div>
+                <p className="text-lg text-timberwolf">Streak</p>
               </div>
               <div>
-                <p className="text-2xl font-chrono text-[#58cc02]">
-                  ⭐ {user.totalXp.toLocaleString()}
-                </p>
-                <p className="text-xs text-timberwolf">XP</p>
+                <div className="flex items-center justify-center gap-1">
+                  <span className="text-2xl mb-[7px]">⭐</span>
+                  <span className="text-3xl font-chrono text-[#58cc02]">{user.totalXp.toLocaleString()}</span>
+                </div>
+                <p className="text-lg text-timberwolf">XP</p>
               </div>
             </div>
 

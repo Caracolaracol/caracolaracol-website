@@ -43,6 +43,7 @@ type RankedItem = {
 };
 
 type StatsState = {
+  profileUrl: string;
   totalScrobbles: number;
   topArtists: RankedItem[];
   topAlbums: RankedItem[];
@@ -66,11 +67,13 @@ function getImage(images?: LastFmImage[]): string {
 function RankedList({
   title,
   items,
+  titleUrl,
   featured = false,
   showBars = false,
 }: {
   title: string;
   items: RankedItem[];
+  titleUrl?: string;
   featured?: boolean;
   showBars?: boolean;
 }) {
@@ -80,21 +83,32 @@ function RankedList({
   const maxPlay = Math.max(...items.map((i) => i.playcount), 1);
 
   return (
-    <div className="mt-5">
-      <h3 className="text-sm font-tommyBold text-timberwolf mb-3">{title}</h3>
+    <div className="mt-1">
+      {titleUrl ? (
+        <a
+          href={titleUrl}
+          target="_blank"
+          rel="noreferrer"
+          className="mb-3 block text-sm font-tommyBold text-timberwolf hover:text-cerise transition-colors"
+        >
+          {title}
+        </a>
+      ) : (
+        <h3 className="text-sm font-tommyBold text-timberwolf mb-3">{title}</h3>
+      )}
 
       {/* Top 1 */}
       {showBars ? (
-        <div className="mb-3">
+        <a
+          href={top.url}
+          target="_blank"
+          rel="noreferrer"
+          className="mb-6 block hover:text-cerise transition-colors"
+        >
           <div className="flex justify-between text-xs text-timberwolf mb-1">
-            <a
-              href={top.url}
-              target="_blank"
-              rel="noreferrer"
-              className="hover:text-cerise transition-colors truncate"
-            >
+            <span className="truncate">
               <span className="text-timberwolf/50">#1</span> {top.name}
-            </a>
+            </span>
             <span>{top.playcount.toLocaleString()} plays</span>
           </div>
           <div className="w-full bg-snow/10 rounded-full h-2">
@@ -103,7 +117,7 @@ function RankedList({
               style={{ width: `${Math.max((top.playcount / maxPlay) * 100, 2)}%` }}
             />
           </div>
-        </div>
+        </a>
       ) : (
         <a
           href={top.url}
@@ -136,7 +150,7 @@ function RankedList({
       )}
 
       {/* Rest */}
-      <div className={showBars ? "space-y-3" : "space-y-1.5"}>
+      <div className={showBars ? "space-y-6" : "space-y-1.5"}>
         {rest.map((item, idx) => (
           <div
             key={item.name + (item.subtitle || "")}
@@ -202,7 +216,7 @@ export default function LastFmStats({ username }: LastFmStatsProps) {
             `${LASTFM_API_URL}?method=user.gettopartists&${baseParams}&period=1month&limit=5`
           ),
           fetch(
-            `${LASTFM_API_URL}?method=user.gettopalbums&${baseParams}&period=1month&limit=5`
+            `${LASTFM_API_URL}?method=user.gettopalbums&${baseParams}&period=1month&limit=1`
           ),
           fetch(
             `${LASTFM_API_URL}?method=user.gettoptracks&${baseParams}&period=1month&limit=5`
@@ -230,52 +244,27 @@ export default function LastFmStats({ username }: LastFmStatsProps) {
           tracksData.toptracks?.track ?? [];
 
         if (!cancelled) {
-          const albumArtMap = new Map<string, string>();
-          albums.forEach((a) => {
-            const art = getImage(a.image);
-            if (art) albumArtMap.set(a.name.toLowerCase(), art);
-          });
-
-          // Artist images are no longer served by Last.fm API.
-          // Search iTunes for a song by the artist to get artwork.
-          let topArtistArt = "";
-          if (artists.length > 0) {
-            try {
-              const itunesRes = await fetch(
-                `https://itunes.apple.com/search?term=${encodeURIComponent(artists[0].name)}&entity=song&limit=1`
-              );
-              if (itunesRes.ok) {
-                const itunesData = await itunesRes.json();
-                const artUrl = itunesData.results?.[0]?.artworkUrl100;
-                if (artUrl) {
-                  topArtistArt = artUrl.replace("100x100", "300x300");
-                }
-              }
-            } catch {
-              // silently ignore
-            }
-          }
-
           setStats({
+            profileUrl: userInfo.url,
             totalScrobbles: parseInt(userInfo.playcount, 10) || 0,
-            topArtists: artists.map((a, i) => ({
+            topArtists: artists.map((a) => ({
               name: a.name,
               playcount: parseInt(a.playcount, 10) || 0,
               url: a.url,
-              artwork: i === 0 ? topArtistArt : "",
+              artwork: "",
             })),
             topAlbums: albums.map((a) => ({
               name: a.name,
               subtitle: a.artist.name,
               playcount: parseInt(a.playcount, 10) || 0,
-              url: a.url,
+              url: userInfo.url,
               artwork: getImage(a.image),
             })),
             topTracks: tracks.map((t) => ({
               name: t.name,
               subtitle: t.artist.name,
               playcount: parseInt(t.playcount, 10) || 0,
-              url: t.url,
+              url: userInfo.url,
               artwork: getImage(t.image) || "",
             })),
           });
@@ -298,10 +287,22 @@ export default function LastFmStats({ username }: LastFmStatsProps) {
 
   return (
     <div className="w-full rounded-2xl border border-snow/12 border-dotted px-5 py-5 backdrop-blur-[2px]">
-      <div className="flex items-center gap-2 text-[0.65rem] uppercase tracking-[0.28em] text-timberwolf tablet:text-xs mb-4">
-        <span className="h-2 w-2 rounded-full bg-cerise" />
-        <span>Last.fm · This Month</span>
-      </div>
+      {stats?.profileUrl ? (
+        <a
+          href={stats.profileUrl}
+          target="_blank"
+          rel="noreferrer"
+          className="mb-4 flex items-center gap-2 text-[0.65rem] uppercase tracking-[0.28em] text-timberwolf transition-colors hover:text-cerise tablet:text-xs"
+        >
+          <span className="h-2 w-2 rounded-full bg-cerise" />
+          <span>Last.fm · <strong className="text-cerise">This Month</strong></span>
+        </a>
+      ) : (
+        <div className="flex items-center gap-2 text-[0.65rem] uppercase tracking-[0.28em] text-timberwolf tablet:text-xs mb-4">
+          <span className="h-2 w-2 rounded-full bg-cerise" />
+          <span>Last.fm · <strong className="text-cerise">This Month</strong></span>
+        </div>
+      )}
 
       {status === "loading" && (
         <div className="space-y-3">
@@ -331,8 +332,24 @@ export default function LastFmStats({ username }: LastFmStatsProps) {
             <p className="text-xs text-timberwolf">Total Scrobbles</p>
           </div> */}
 
-          <RankedList title="Monthly Top Albums" items={stats.topAlbums} featured />
-          <RankedList title="Monthly Top Artists" items={stats.topArtists} showBars />
+          <div className="flex gap-6">
+            <div className="w-1/2 min-w-0">
+              <RankedList
+                title="Top Album"
+                items={stats.topAlbums.slice(0, 1)}
+                titleUrl={stats.profileUrl}
+                featured
+              />
+            </div>
+            <div className="w-1/2 min-w-0">
+              <RankedList
+                title="Top Artists"
+                items={stats.topArtists}
+                titleUrl={stats.profileUrl}
+                showBars
+              />
+            </div>
+          </div>
         </>
       )}
     </div>
