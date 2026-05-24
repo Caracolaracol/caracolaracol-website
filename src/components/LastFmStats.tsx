@@ -332,8 +332,8 @@ export default function LastFmStats({ username }: LastFmStatsProps) {
             <p className="text-xs text-timberwolf">Total Scrobbles</p>
           </div> */}
 
-          <div className="flex gap-6">
-            <div className="w-1/2 min-w-0">
+          <div className="flex flex-col gap-6 tablet:flex-row">
+            <div className="w-full min-w-0 tablet:w-1/2">
               <RankedList
                 title="Top Album"
                 items={stats.topAlbums.slice(0, 1)}
@@ -341,7 +341,7 @@ export default function LastFmStats({ username }: LastFmStatsProps) {
                 featured
               />
             </div>
-            <div className="w-1/2 min-w-0">
+            <div className="w-full min-w-0 tablet:w-1/2">
               <RankedList
                 title="Top Artists"
                 items={stats.topArtists}
