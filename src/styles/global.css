@@ -16,7 +16,6 @@
   --color-viridian: #154e69;
   --color-violet: #312559;
   --color-violetl: oklch(0.72 0.1579 280.59);
-  /* oklch(0.72 0.1579 280.59); */
   --color-ocre: #DE7F26;
   /* Backgrounds */
   --color-dark: #232031;
@@ -34,6 +33,9 @@
   --font-tommyLight: tommyLight;
   --font-tommyMedium: tommyMedium;
   --font-tommyRegular: tommyRegular;
+  --font-tommyLightNormal: tommyLightNormal;
+  --font-tommyRegularNormal: tommyRegularNormal;
+  --font-tommyMediumNormal: tommyMediumNormal;
 
   --tw-prose-body: #E8CFD4;
   --tw-prose-lead: #E8CFD4;
@@ -73,6 +75,24 @@
 @font-face {
     font-family: "tommyRegular";
     src: url("/fonts/MADE Tommy Soft Regular PERSONAL USE.otf");
+    font-display: block;
+}
+
+@font-face {
+    font-family: "tommyLightNormal";
+    src: url("/fonts/MADE TOMMY Light_PERSONAL USE.otf");
+    font-display: block;
+}
+
+@font-face {
+    font-family: "tommyRegularNormal";
+    src: url("/fonts/MADE TOMMY Regular_PERSONAL USE.otf");
+    font-display: block;
+}
+
+@font-face {
+    font-family: "tommyMediumNormal";
+    src: url("/fonts/MADE TOMMY Medium_PERSONAL USE.otf");
     font-display: block;
 }
 
@@ -132,7 +152,7 @@
         @apply bg-violet hover:text-cerise font-tommyMedium px-4 py-1 tablet:py-2 rounded-lg transition-colors  cursor-pointer;
     }
     p {
-        @apply font-tommyMedium text-sm tablet:text-base laptop:text-base desktop:text-lg;
+        @apply font-tommyRegularNormal text-sm tablet:text-base laptop:text-base desktop:text-lg;
     }
     h1{
         @apply  desktop:text-[3.2rem];
