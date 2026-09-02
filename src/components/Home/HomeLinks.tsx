@@ -60,7 +60,7 @@ function HomeLinks() {
                 >
                     <a
                         className={styles}
-                        href="https://www.instagram.com/caracolaracol/"
+                        href="https://www.instagram.com/agustinrojasm_/"
                         target="_blank"
                     >
                         Instagram
