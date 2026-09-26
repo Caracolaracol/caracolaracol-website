@@ -11,6 +11,10 @@ export default defineConfig({
   },
 
   integrations: [react(), mdx()],
+  redirects: {
+    "/genealog": "/arbol-genealogico",
+    "/genealogia": "/arbol-genealogico",
+  },
   i18n: {
     defaultLocale: "en",
     locales: ["en", "es"],
